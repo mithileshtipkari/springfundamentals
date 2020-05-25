@@ -17,6 +17,10 @@ import org.springframework.stereotype.Repository;
 @Repository("speakerRepository")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
 
+    public HibernateSpeakerRepositoryImpl() {
+        System.out.println("HibernateSpeakerRepositoryImpl no args Constructor");
+    }
+
     @Override
     public List<Speaker> findAll(){
         List<Speaker> speakers = new ArrayList<>();
