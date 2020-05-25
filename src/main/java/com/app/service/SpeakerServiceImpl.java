@@ -9,6 +9,7 @@ import com.app.model.Speaker;
 import com.app.repository.HibernateSpeakerRepositoryImpl;
 import com.app.repository.SpeakerRepository;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -17,8 +18,13 @@ import java.util.List;
 public class SpeakerServiceImpl implements SpeakerService {
     
     private SpeakerRepository repository;
+
+    public SpeakerServiceImpl() {
+        System.out.println("SpeakerServiceImpl no args ctor");
+    }
     
     public SpeakerServiceImpl (SpeakerRepository speakerRepository){
+        System.out.println("SpeakerServiceImpl ctor");
         repository = speakerRepository;
     }
     
@@ -27,7 +33,10 @@ public class SpeakerServiceImpl implements SpeakerService {
         return repository.findAll();
     }
 
+    //Autowired setter method, the speakerRepository instance will be injected here
+    @Autowired
     public void setSpeakerRepository(SpeakerRepository speakerRepository) {
+        System.out.println("SpeakerServiceImpl setter");
         this.repository = speakerRepository;
     }
 }

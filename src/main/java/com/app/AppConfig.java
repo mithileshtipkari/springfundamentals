@@ -28,11 +28,14 @@ public class AppConfig {
     public SpeakerService getSpeakerService(){
         //Constructor Injection
         //speakerRepository instance is injected using constructor 
-        SpeakerServiceImpl service = new SpeakerServiceImpl(getSpeakerRepository());
+//        SpeakerServiceImpl service = new SpeakerServiceImpl(getSpeakerRepository());
         
         //setter injection
         //speakerRepository instance is injected using setter method
 //        service.setSpeakerRepository(getSpeakerRepository());
+
+        //Autowired setter injection
+        SpeakerServiceImpl service = new SpeakerServiceImpl();
         return service;
     }
     
