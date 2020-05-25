@@ -6,15 +6,16 @@
 package com.app.service;
 
 import com.app.model.Speaker;
-import com.app.repository.HibernateSpeakerRepositoryImpl;
 import com.app.repository.SpeakerRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author mith1
  */
+@Service("speakerService")
 public class SpeakerServiceImpl implements SpeakerService {
     
     private SpeakerRepository repository;

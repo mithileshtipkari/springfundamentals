@@ -8,13 +8,15 @@ package com.app.repository;
 import com.app.model.Speaker;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author mith1
  */
+@Repository("speakerRepository")
 public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
-    
+
     @Override
     public List<Speaker> findAll(){
         List<Speaker> speakers = new ArrayList<>();
