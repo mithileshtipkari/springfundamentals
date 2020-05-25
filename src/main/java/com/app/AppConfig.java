@@ -21,7 +21,8 @@ public class AppConfig {
     
     @Bean(name = "speakerService")
     public SpeakerService getSpeakerService(){
-        //speakerRepository instance is injected using constructor
+        //Constructor Injection
+        //speakerRepository instance is injected using constructor 
         SpeakerServiceImpl service = new SpeakerServiceImpl(getSpeakerRepository());
         
         //setter injection

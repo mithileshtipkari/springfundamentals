@@ -7,6 +7,8 @@ package com.app;
 
 import com.app.service.SpeakerService;
 import com.app.service.SpeakerServiceImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
  *
@@ -15,7 +17,12 @@ import com.app.service.SpeakerServiceImpl;
 public class Application {
     
     public static void main(String[] args) {
-        SpeakerService speakerService = new SpeakerServiceImpl();
+        //Normal Hardcoded assignment of dependencies
+//        SpeakerService speakerService = new SpeakerServiceImpl();
+
+        //Using Application context to fetch instance of beans and then use them as we want
+        ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        SpeakerService speakerService = appContext.getBean("speakerService", SpeakerService.class);
         System.out.println(speakerService.findAll().get(0).getFirstName());
     }
 }
