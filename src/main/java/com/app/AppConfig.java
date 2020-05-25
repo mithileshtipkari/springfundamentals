@@ -9,8 +9,10 @@ import com.app.repository.HibernateSpeakerRepositoryImpl;
 import com.app.repository.SpeakerRepository;
 import com.app.service.SpeakerService;
 import com.app.service.SpeakerServiceImpl;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 /**
  *
@@ -19,7 +21,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
     
+    //sets scope of bean to prototype, each time this method is called a new instance will be created
+    //@Scope(value = BeanDefinition.SCOPE_PROTOTYPE) 
     @Bean(name = "speakerService")
+    @Scope(value = BeanDefinition.SCOPE_SINGLETON)
     public SpeakerService getSpeakerService(){
         //Constructor Injection
         //speakerRepository instance is injected using constructor 
