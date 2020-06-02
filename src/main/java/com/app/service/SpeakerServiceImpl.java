@@ -16,7 +16,13 @@ import java.util.List;
  */
 public class SpeakerServiceImpl implements SpeakerService {
     
-    private SpeakerRepository speakerRepository = new HibernateSpeakerRepositoryImpl();
+    private SpeakerRepository speakerRepository;// = new HibernateSpeakerRepositoryImpl(); //remove hardcoded assignment
+
+    public void setSpeakerRepository(SpeakerRepository speakerRepository) {
+        //setter will be called to populate the dependency because be defined the dependent bean in applicationContext.xml
+        System.out.println("setter called");
+        this.speakerRepository = speakerRepository;
+    }
     
     @Override
     public List<Speaker> findAll(){
