@@ -9,6 +9,7 @@ import com.app.model.Speaker;
 import com.app.repository.HibernateSpeakerRepositoryImpl;
 import com.app.repository.SpeakerRepository;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,11 @@ public class SpeakerServiceImpl implements SpeakerService {
     public SpeakerServiceImpl (SpeakerRepository speakerRepository){
         System.out.println("SpeakerServiceImpl ctor");
         repository = speakerRepository;
+    }
+    
+    @PostConstruct
+    private void initialize(){
+        System.out.println("This function runs after contructor is called. Do some processing here");
     }
     
     @Override
