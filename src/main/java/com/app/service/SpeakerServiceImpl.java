@@ -11,6 +11,7 @@ import com.app.repository.SpeakerRepository;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +19,9 @@ import org.springframework.stereotype.Service;
  * @author mith1
  */
 @Service("speakerService")
+//only runs if active profile is "dev"
+//to set profile, go to VM options and set -> -Dspring.profiles.active=dev
+@Profile("dev")  
 public class SpeakerServiceImpl implements SpeakerService {
     
     @Autowired //- if you Autowire the field of class, it directly gets injected
