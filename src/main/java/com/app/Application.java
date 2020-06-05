@@ -23,7 +23,10 @@ public class Application {
         //Using Application context to fetch instance of beans and then use them as we want
         ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
         SpeakerService speakerService = appContext.getBean("speakerService", SpeakerService.class);
-        System.out.println(speakerService.findAll().get(0).getFirstName());
+        //System.out.println(speakerService.findAll().get(0).getFirstName());
+        
+        System.out.println("Checking SpEL, populating some value at run time");
+        System.out.println("Seed value -> " + speakerService.findAll().get(0).getSeedValue());
         
         //check scope of bean
 //        System.out.println(speakerService);

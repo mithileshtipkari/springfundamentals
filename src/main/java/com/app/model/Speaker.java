@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.app.model;
 
 /**
@@ -13,6 +8,7 @@ public class Speaker {
     
     private String firstName;
     private String lastName;
+    private double seedValue;
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
@@ -29,4 +25,13 @@ public class Speaker {
     public String getLastName() {
         return lastName;
     }
+
+    public double getSeedValue() {
+        return seedValue;
+    }
+
+    public void setSeedValue(double seedValue) {
+        this.seedValue = seedValue;
+    }
+    
 }

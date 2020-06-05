@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -25,6 +26,9 @@ public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
     //This will give our Calendar instance manipulated in the factory bean
     @Autowired
     private Calendar cal;
+    
+    @Value("#{ T(java.lang.Math).random() * 100}")
+    private double seedValue;
 
     public HibernateSpeakerRepositoryImpl() {
         System.out.println("HibernateSpeakerRepositoryImpl no args Constructor");
@@ -36,6 +40,7 @@ public class HibernateSpeakerRepositoryImpl implements SpeakerRepository {
         Speaker speaker = new Speaker();
         speaker.setFirstName("mith");
         speaker.setLastName("tips");
+        speaker.setSeedValue(seedValue);
         
         System.out.println("Just date -"+ cal.getTime());;
         
